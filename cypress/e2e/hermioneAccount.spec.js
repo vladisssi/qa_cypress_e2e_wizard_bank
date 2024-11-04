@@ -54,7 +54,8 @@ describe('Bank app', () => {
 
     cy.get('[ng-model="accountNo"]').select(emptyAccount)
     cy.get('[ng-click="transactions()"]').click()
-    cy.get('tbody').should('not.contain', 'tr')
+
+    cy.get('tbody').find('tr').should('have.length', 0)
 
     cy.get('[ng-click="byebye()"]').click()
     cy.get('[name="userSelect"]').should('be.visible')
